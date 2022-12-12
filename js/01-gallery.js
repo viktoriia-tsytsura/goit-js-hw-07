@@ -22,7 +22,10 @@ galleryEl.insertAdjacentHTML('beforeend', markup)
 galleryEl.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(event) {
-    event.preventDefault();
+  event.preventDefault();
+
+  if (event.target.nodeName !== 'IMG') return;
+
     const imgEl = event.target;
     
     const instance = basicLightbox.create(`
